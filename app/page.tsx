@@ -26,12 +26,12 @@ export default function Home() {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h1 className="text-4xl font-bold mb-4">Hi, I'm [Your Name]</h1>
+            <h1 className="text-4xl font-bold mb-4">Hi, I'm Asim Ali Abbas</h1>
             <p className="text-xl text-muted-foreground mb-6">
-              A passionate Class 12 student with aspirations in [Your Field]
+              A passionate Class 12 student with aspirations in Computer Science
             </p>
             <p className="mb-6">
-              I'm dedicated to academic excellence and personal growth, with a keen interest in [Your Interests]. Through my journey, I've developed strong leadership skills and a drive for innovation.
+              I'm dedicated to academic excellence and personal growth, with a keen interest in Computer Science. Through my journey, I've developed strong leadership skills and a drive for innovation.
             </p>
             <div className="flex gap-4">
               <Button asChild>
@@ -69,7 +69,7 @@ export default function Home() {
               whileHover={{ scale: 1.05 }}
             >
               <Image
-                src="/images/profile.jpeg" // Ensure the image is in the public/images folder
+                src="/images/profile.png" // Ensure the image is in the public/images folder
                 alt="Profile"
                 width={400} // Adjust width accordingly
                 height={400} // Adjust height accordingly
@@ -91,7 +91,7 @@ export default function Home() {
             <Card className="p-6">
               <h3 className="text-lg font-semibold mb-2">Academic Excellence</h3>
               <p className="text-muted-foreground">
-                Consistently maintaining top grades with a focus on [Your Subjects]
+                Consistently maintaining top grades with a focus on Programming and Mathematics with keeping myself updated with latest News in Field of Artificial Inteligence. 
               </p>
             </Card>
           </motion.div>
