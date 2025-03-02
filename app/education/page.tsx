@@ -7,22 +7,22 @@ import { School, Award, Calendar } from "lucide-react"
 const educationData = [
   {
     year: "2021-2023",
-    institution: "Your Current School",
+    institution: "Aga Khan Higher Secondary School Gilgit",
     level: "Class 11-12",
-    stream: "Science/Commerce/Arts",
+    stream: "Computer Science",
     achievements: [
-      "Maintained consistent academic performance with 95% aggregate",
+      "Maintained consistent academic performance with 88% aggregate",
       "Class Representative for two consecutive years",
       "Active member of the Science Club"
     ]
   },
   {
     year: "2019-2021",
-    institution: "Your Previous School",
+    institution: "Aga Khan Higher Secondary School Gilgit",
     level: "Class 9-10",
     stream: "General",
     achievements: [
-      "Scored 95% in Class 10 Board Examinations",
+      "Scored 88% in Class 10 Board Examinations",
       "Merit Certificate in Mathematics Olympiad",
       "School Quiz Team Captain"
     ]
