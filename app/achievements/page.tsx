@@ -1,41 +1,21 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { Navbar } from "@/components/navbar"
-import { FileText, Calendar, ExternalLink } from "lucide-react"
+import { FileText, Calendar } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Card } from "@/components/ui/card"
+import { path as pathModule } from "path"
 import { Button } from "@/components/ui/button"
-import path from 'path'
 
-// PDF Viewer
-const PDFViewer = ({ pdfPath }) => (
-  <div className="w-full rounded-lg overflow-hidden border shadow-sm mt-4">
-    <iframe
-      src={`${pdfPath}#toolbar=0&navpanes=0`}
-      className="w-full h-[80vh]"
-      title="PDF Viewer"
-    />
-  </div>
-)
+type Certificate = {
+  path: string
+  title: string
+  date: string
+  description: string
+}
 
-// Certificate Tile
-const CertificateTile = ({ cert, onClick }) => (
-  <Card
-    onClick={onClick}
-    className="relative cursor-pointer overflow-hidden hover:shadow-lg transition-shadow duration-300"
-  >
-    <div className="aspect-video flex flex-col items-center justify-center bg-muted px-4 py-6 text-center">
-      <FileText className="h-12 w-12 text-muted-foreground mb-2" />
-      <p className="text-sm text-muted-foreground">{path.basename(cert.path)}</p>
-      <p className="text-sm font-semibold mt-2">{cert.title}</p>
-    </div>
-    <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-      <span className="text-white text-lg font-medium">View</span>
-    </div>
-  </Card>
-)
-const certificatesData = [
+const certificatesData: Certificate[] = [
   {
     path: "/achievements/ambasdor.pdf",
     title: "Tech Scape Ambassador",
@@ -110,9 +90,34 @@ const certificatesData = [
   }
 ]
 
+const PDFViewer = ({ pdfPath }: { pdfPath: string }) => (
+  <div className="w-full rounded-lg overflow-hidden border shadow-sm mt-4">
+    <iframe
+      src={`${pdfPath}#toolbar=0&navpanes=0`}
+      className="w-full h-[80vh]"
+      title="PDF Viewer"
+    />
+  </div>
+)
 
-export default function Achievements() {
-  const [selectedCert, setSelectedCert] = useState(null)
+const CertificateTile = ({ cert, onClick }: { cert: Certificate; onClick: () => void }) => (
+  <Card
+    onClick={onClick}
+    className="relative cursor-pointer overflow-hidden hover:shadow-lg transition-shadow duration-300"
+  >
+    <div className="aspect-video flex flex-col items-center justify-center bg-muted px-4 py-6 text-center">
+      <FileText className="h-12 w-12 text-muted-foreground mb-2" />
+      <p className="text-sm text-muted-foreground">{cert.path.split('/').pop()}</p>
+      <p className="text-sm font-semibold mt-2">{cert.title}</p>
+    </div>
+    <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
+      <span className="text-white text-lg font-medium">View</span>
+    </div>
+  </Card>
+)
+
+export default function AchievementsPage() {
+  const [selectedCert, setSelectedCert] = useState<Certificate | null>(null)
 
   return (
     <main className="min-h-screen bg-background">
@@ -125,7 +130,7 @@ export default function Achievements() {
             <Dialog key={idx}>
               <DialogTrigger asChild>
                 <div onClick={() => setSelectedCert(cert)}>
-                  <CertificateTile cert={cert} />
+                  <CertificateTile cert={cert} onClick={() => setSelectedCert(cert)} />
                 </div>
               </DialogTrigger>
               <DialogContent className="max-w-5xl">
