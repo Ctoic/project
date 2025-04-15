@@ -35,19 +35,19 @@ export default function Home() {
             </p>
             <div className="flex gap-4">
               <Button asChild>
-                <Link href="/contact" className="flex items-center">
+                <Link href="/about" className="flex items-center">  
                   <Mail className="mr-2 h-4 w-4" />
                   Contact Me
                 </Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link href="https://github.com" className="flex items-center">
+                <Link href="https://github.com/Ashudani" className="flex items-center">
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
                 </Link>
               </Button>
               <Button variant="outline" asChild>
-                <Link href="https://linkedin.com" className="flex items-center">
+                <Link href="https://www.linkedin.com/in/asim-ali-abbas-9033a62a3/" className="flex items-center">
                   <Linkedin className="mr-2 h-4 w-4" />
                   LinkedIn
                 </Link>

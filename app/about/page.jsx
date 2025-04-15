@@ -1,7 +1,7 @@
 "use client"
 
 import { Navbar } from "@/components/navbar"
-import { Mail, Instagram, Linkedin, Phone, Globe } from "lucide-react"
+import { Mail, Instagram, Linkedin, Phone, Globe, Github } from "lucide-react"
 import { Card } from "@/components/ui/card"
 
 export default function AboutPage() {
@@ -27,29 +27,29 @@ export default function AboutPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <Card className="p-4 flex items-center gap-4">
-            <Instagram className="text-pink-500" />
-            <a href="https://instagram.com/yourusername" target="_blank" className="text-lg font-medium hover:underline">
-              Instagram
+            <Github className="text-pink-500" />
+            <a href="https://github.com/Ashudani" target="_blank" className="text-lg font-medium hover:underline">
+              GitHub
             </a>
           </Card>
 
           <Card className="p-4 flex items-center gap-4">
             <Linkedin className="text-blue-600" />
-            <a href="https://linkedin.com/in/yourusername" target="_blank" className="text-lg font-medium hover:underline">
+            <a href="https://www.linkedin.com/in/asim-ali-abbas-9033a62a3/" target="_blank" className="text-lg font-medium hover:underline">
               LinkedIn
             </a>
           </Card>
 
           <Card className="p-4 flex items-center gap-4">
             <Mail className="text-red-500" />
-            <a href="mailto:asim@example.com" className="text-lg font-medium hover:underline">
+            <a href="mailto:ashudani1122@gmail.com" className="text-lg font-medium hover:underline">
               Email Me
             </a>
           </Card>
 
           <Card className="p-4 flex items-center gap-4">
             <Phone className="text-green-500" />
-            <a href="https://wa.me/923001234567" target="_blank" className="text-lg font-medium hover:underline">
+            <a href="https://wa.me/03555807807" target="_blank" className="text-lg font-medium hover:underline">
               WhatsApp
             </a>
           </Card>
