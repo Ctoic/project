@@ -23,8 +23,7 @@ const educationData = [
     stream: "General",
     achievements: [
       "Scored 88% in Class 10 Board Examinations",
-      "Merit Certificate in Mathematics Olympiad",
-      "School Quiz Team Captain"
+  
     ]
   }
 ]
