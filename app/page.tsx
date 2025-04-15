@@ -1,151 +1,128 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Navbar } from "@/components/navbar"
-import { FileText, Calendar } from "lucide-react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Card } from "@/components/ui/card"
+import { Navbar } from "@/components/navbar";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Github, Linkedin, Mail } from "lucide-react";
+import Link from "next/link";
+import Image from "next/image"; // Import Next.js image component
+import { motion } from "framer-motion";
 
-type Certificate = {
-  path: string
-  title: string
-  date: string
-  description: string
-}
-
-const certificatesData: Certificate[] = [
-  {
-    path: "/achievements/ambasdor.pdf",
-    title: "Tech Scape Ambassador",
-    date: "March 2024 - Present",
-    description: "Ambassador of the Year for Tech Scape Pvt Ltd."
-  },
-  {
-    path: "/achievements/Asim OEC.pdf",
-    title: "Asim OEC Participation",
-    date: "2024",
-    description: "Participated in Asim OEC event showcasing innovation and leadership."
-  },
-  {
-    path: "/achievements/converse.pdf",
-    title: "Science Exhibition Winner",
-    date: "Sep 2023",
-    description: "First Prize in Converse Science Exhibition for Renewable Energy project."
-  },
-  {
-    path: "/achievements/cplg-fotbll.pdf",
-    title: "Football Championship",
-    date: "Feb 2024",
-    description: "Represented CPLG in inter-school football competition."
-  },
-  {
-    path: "/achievements/head ict.pdf",
-    title: "ICT Society Head",
-    date: "2023-2024",
-    description: "Recognized for outstanding leadership as Head of ICT Society."
-  },
-  {
-    path: "/achievements/icap.pdf",
-    title: "ICAP Participation",
-    date: "2024",
-    description: "Participated in ICAP youth conference representing academic excellence."
-  },
-  {
-    path: "/achievements/inter school.pdf",
-    title: "Inter School Competition",
-    date: "2023",
-    description: "Awarded for performance in Inter School Academic Competitions."
-  },
-  {
-    path: "/achievements/josh.pdf",
-    title: "Josh Fest Winner",
-    date: "2023",
-    description: "Achieved top position in Josh Fest creativity challenge."
-  },
-  {
-    path: "/achievements/mentor.pdf",
-    title: "Mentorship Program",
-    date: "2024",
-    description: "Contributed as a mentor in student development programs."
-  },
-  {
-    path: "/achievements/mun.pdf",
-    title: "MUN Delegate",
-    date: "2024",
-    description: "Participated in Model United Nations as a delegate and speaker."
-  },
-  {
-    path: "/achievements/pamir.pdf",
-    title: "Pamir Youth Forum",
-    date: "2024",
-    description: "Presented research and innovation ideas at Pamir Youth Forum."
-  },
-  {
-    path: "/achievements/qirat.pdf",
-    title: "Qirat Competition",
-    date: "2023",
-    description: "Secured position in Inter-School Qirat Recitation Contest."
-  }
-]
-
-const PDFViewer = ({ pdfPath }: { pdfPath: string }) => (
-  <div className="w-full rounded-lg overflow-hidden border shadow-sm mt-4">
-    <iframe
-      src={`${pdfPath}#toolbar=0&navpanes=0`}
-      className="w-full h-[80vh]"
-      title="PDF Viewer"
-    />
-  </div>
-)
-
-const CertificateTile = ({ cert, onClick }: { cert: Certificate; onClick: () => void }) => (
-  <Card
-    onClick={onClick}
-    className="relative cursor-pointer overflow-hidden hover:shadow-lg transition-shadow duration-300"
-  >
-    <div className="aspect-video flex flex-col items-center justify-center bg-muted px-4 py-6 text-center">
-      <FileText className="h-12 w-12 text-muted-foreground mb-2" />
-      <p className="text-sm text-muted-foreground">{cert.path.split("/").pop()}</p>
-      <p className="text-sm font-semibold mt-2">{cert.title}</p>
-    </div>
-    <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
-      <span className="text-white text-lg font-medium">View</span>
-    </div>
-  </Card>
-)
-
-export default function AchievementsPage() {
-  const [selectedCert, setSelectedCert] = useState<Certificate | null>(null)
-
+export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+    <motion.main
+      className="min-h-screen bg-background"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       <Navbar />
       <div className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold mb-8 text-center">My Certificates</h1>
+        <div className="flex flex-col md:flex-row items-center gap-8">
+          {/* Left Column - Text Content */}
+          <motion.div
+            className="w-full md:w-1/2"
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <h1 className="text-4xl font-bold mb-4">Hi, I'm Asim Ali Abbas</h1>
+            <p className="text-xl text-muted-foreground mb-6">
+              A passionate Class 12 student with aspirations in Computer Science
+            </p>
+            <p className="mb-6">
+              I'm dedicated to academic excellence and personal growth, with a keen interest in Computer Science. Through my journey, I've developed strong leadership skills and a drive for innovation.
+            </p>
+            <div className="flex gap-4">
+              <Button asChild>
+                <Link href="/contact" className="flex items-center">
+                  <Mail className="mr-2 h-4 w-4" />
+                  Contact Me
+                </Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link href="https://github.com" className="flex items-center">
+                  <Github className="mr-2 h-4 w-4" />
+                  GitHub
+                </Link>
+              </Button>
+              <Button variant="outline" asChild>
+                <Link href="https://linkedin.com" className="flex items-center">
+                  <Linkedin className="mr-2 h-4 w-4" />
+                  LinkedIn
+                </Link>
+              </Button>
+            </div>
+          </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {certificatesData.map((cert, idx) => (
-            <Dialog key={idx}>
-              <DialogTrigger asChild>
-                <div onClick={() => setSelectedCert(cert)}>
-                  <CertificateTile cert={cert} onClick={() => setSelectedCert(cert)} />
-                </div>
-              </DialogTrigger>
-              <DialogContent className="max-w-5xl">
-                <DialogHeader>
-                  <DialogTitle className="text-2xl font-semibold">{cert.title}</DialogTitle>
-                  <div className="flex items-center text-muted-foreground text-sm mt-1 gap-2">
-                    <Calendar className="h-4 w-4" />
-                    {cert.date}
-                  </div>
-                  <p className="mt-2">{cert.description}</p>
-                </DialogHeader>
-                <PDFViewer pdfPath={cert.path} />
-              </DialogContent>
-            </Dialog>
-          ))}
+          {/* Right Column - Profile Image */}
+          <motion.div
+            className="w-full md:w-1/2"
+            initial={{ x: 50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <Image
+                src="/images/profile.png" // Ensure the image is in the public/images folder
+                alt="Profile"
+                width={400} // Adjust width accordingly
+                height={400} // Adjust height accordingly
+                className="rounded-lg shadow-lg w-full"
+                priority // Optimized loading
+              />
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Animated Cards Section */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <Card className="p-6">
+              <h3 className="text-lg font-semibold mb-2">Academic Excellence</h3>
+              <p className="text-muted-foreground">
+                Consistently maintaining top grades with a focus on Programming and Mathematics with keeping myself updated with latest News in Field of Artificial Inteligence. 
+              </p>
+            </Card>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.5 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <Card className="p-6">
+              <h3 className="text-lg font-semibold mb-2">Leadership</h3>
+              <p className="text-muted-foreground">
+                Active participation in student council and organizing school events
+              </p>
+            </Card>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.5 }}
+            whileHover={{ scale: 1.05 }}
+          >
+            <Card className="p-6">
+              <h3 className="text-lg font-semibold mb-2">Extracurricular</h3>
+              <p className="text-muted-foreground">
+                Balancing academics with sports and cultural activities
+              </p>
+            </Card>
+          </motion.div>
         </div>
       </div>
-    </main>
-  )
+    </motion.main>
+  );
 }
