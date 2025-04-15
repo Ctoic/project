@@ -5,8 +5,6 @@ import { Navbar } from "@/components/navbar"
 import { FileText, Calendar } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Card } from "@/components/ui/card"
-import { path as pathModule } from "path"
-import { Button } from "@/components/ui/button"
 
 type Certificate = {
   path: string
@@ -107,7 +105,7 @@ const CertificateTile = ({ cert, onClick }: { cert: Certificate; onClick: () => 
   >
     <div className="aspect-video flex flex-col items-center justify-center bg-muted px-4 py-6 text-center">
       <FileText className="h-12 w-12 text-muted-foreground mb-2" />
-      <p className="text-sm text-muted-foreground">{cert.path.split('/').pop()}</p>
+      <p className="text-sm text-muted-foreground">{cert.path.split("/").pop()}</p>
       <p className="text-sm font-semibold mt-2">{cert.title}</p>
     </div>
     <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center">
